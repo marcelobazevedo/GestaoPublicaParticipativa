@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">PFC</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+
+    <!-- String Login -->
+    <string name="lbl_login">Login</string>
+    <string name="lbl_senha">Senha</string>
+    <string name="lbl_logar">Logar</string>
+    <string name="lbl_sair">Sair</string>
+    <string name="lbl_sobre">Informações</string>
+    <string name="lbl_email">Email</string>
+    <string name="lbl_nome">Nome</string>
+    <string name="lbl_data_nascimento">Data de Nascimento</string>
+    <string name="lbl_cadastrar">Cadastrar</string>
+    <string name="msg_sobre">Loja Virtual 1.0</string>
+
+    <!-- String mensagem -->
+    <string name="msg_login_obg">Login obrigatorio</string>
+    <string name="msg_senha_obg">Senha obrigatorio</string>
+    <string name="msg_logout">Deseja realmente deslogar?</string>
+
+    <!-- String globais -->
+    <string name="lbl_Listar">Listar</string>
+    <string name="lbl_pesquisar">Pesquisar</string>
+    <string name="botaoLogar">Efetuar Login</string>
+    <string name="botaoAnonimo">Denunciar como Anônimo</string>
+    <string name="botaoCadastrar">Realizar Cadastro</string>
+
+    <!-- filtros -->
+    <string name="lbl_filtro">Filtrar</string>
+    <string name="lbl_agua">Água</string>
+    <string name="lbl_agua1">Despejo de esgoto</string>
+    <string name="lbl_agua2">Despejo de resíduos sólidos</string>
+    <string name="lbl_agua3">Despejo de resíduos tóxicos</string>
+    <string name="lbl_agua4">Uso ilegal de água superficial</string>
+    <string name="lbl_agua5">Dragagem de leitos de rios ou córregos</string>
+    <string name="lbl_agua6">Poço artesiano irregular ou ilegal</string>
+    
+    
+    <string name="lbl_ar">Ar</string>
+    <string name="lbl_ar1">Fumaça eliminada por veículos</string>
+    <string name="lbl_ar2">Fumaça eliminada por fábricas</string>
+    <string name="lbl_ar3">Queimadas</string>
+    <string name="lbl_ar4">Poeira</string>
+    <string name="lbl_ar5">Emissão de odores fétidos (curtumes, pocilgas, esgoto não tratado, etc)</string>
+    
+    
+    <string name="lbl_solo">Solo</string>
+    <string name="lbl_solo1">Despejo de esgoto no solo</string>
+    <string name="lbl_solo2">Depósito clandestino/irregular de resíduos sólidos urbanos</string>
+    <string name="lbl_solo3">Depósito clandestino/irregular de resíduos de construção civil</string>
+    <string name="lbl_solo4">Extração irregular de areia, argila ou cascalho</string>
+    <string name="lbl_solo5">Uso ilegal do solo (plantio etc)</string>
+    <string name="lbl_solo6">Ocorrência de erosões (sulcos, ravinas, voçorocas)</string>
+    
+    <string name="lbl_decp">Desmatamento/extração/exploração/caça/pesca/etc</string>
+    <string name="lbl_decp1">Desmatamento de vegetação remanescente</string>
+    <string name="lbl_decp2">Extração ou exploração de recursos naturais de forma irregular</string>
+    <string name="lbl_decp3">Caça irregular</string>
+    <string name="lbl_decp4">Pesca irregular</string>
+    
+    
+    <string name="lbl_invasao">Invasão</string>
+    <string name="lbl_invasao1">Invasão em áreas protegidas</string>
+    <string name="lbl_invasao2">Invasão em matas ciliares</string>
+    
+    <string name="lbl_ds">Dimensão Social</string>
+    <string name="lbl_ds1">Segurança</string>
+    <string name="lbl_ds2">Assalto</string>
+    <string name="lbl_ds3">Roubo</string>
+    <string name="lbl_ds4">Vandalismo</string>
+    <string name="lbl_ds5">Estupro</string>
+    <string name="lbl_ds6">Violência contra mulher, criança, idoso</string>
+    <string name="lbl_ds7">Gangs</string>
+    <string name="lbl_ds8">Traficantes</string>
+    <string name="lbl_ds9">Usuários de drogas ilícitas</string>
+    <string name="lbl_ds10">Torcidas de futebol organizadas</string>
+    
+    
+    <string name="lbl_educacao">Educação</string>
+    <string name="lbl_educacao1">Escola sem professor</string>
+    <string name="lbl_educacao2">Escola com problemas estruturais</string>
+    <string name="lbl_educacao3">Falta de creche</string>
+    <string name="lbl_educacao4">Falta de escola de ensino fundamental</string>
+    <string name="lbl_educacao5">Falta de escola de ensino médio</string>
+    <string name="lbl_educacao6">Falta de faculdade ou universidade</string>
+    
+    <string name="lbl_saude">Saúde</string>
+    <string name="lbl_saude1">Falta de posto de saúde</string>
+    <string name="lbl_saude2">Falta de hospital</string>
+    <string name="lbl_saude3">Falta de médico</string>
+    <string name="lbl_saude4">Falta de medicamento</string>
+    <string name="lbl_saude5">Superlotação</string>
+    <string name="lbl_saude6">Atendimento ruim</string>
+    <string name="lbl_saude7">Falta de leito</string>
+    <string name="lbl_saude8">Falta de equipamentos</string>
+    
+    
+    <string name="lbl_ie">Infraestrutura Urbana</string>
+    <string name="lbl_ie1">Iluminação pública deficiente, inexistente</string>
+    <string name="lbl_ie2">Pavimentação pública deficiente, inexistente</string>
+    <string name="lbl_ie3">Rede de coleta de esgoto inexistente</string>
+    <string name="lbl_ie4">Abastecimento de água insuficiente, inexistente</string>
+    <string name="lbl_ie5">Atendimento de energia elétrica insatisfatório, inexistente</string>
+    <string name="lbl_ie6">Ponto de alagamento, inundação ou enchente</string>
+    <string name="lbl_ie7">Ponto de congestionamento</string>
+    <string name="lbl_ie8">Acidentes envolvendo veículos, motos, ciclistas, pedestres</string>
+    <string name="lbl_ie9">Buracos/erosões em vias públicas</string>
+    <string name="lbl_ie10">Inexistência de bueiros (galerias de água pluvial)</string>
+    <string name="lbl_ie11">Drenagem inadequada de águas pluviais</string>
+    <string name="lbl_ie12">Ponto de estrangulamento irregular de drenagem fluvial (represa/barragem clandestina)</string>
+   
+    
+    <string name="lbl_invasaop">Invasão</string>
+    <string name="lbl_invasaop1">Invasão de patrimônio público</string>
+    <string name="lbl_invasaop2">Invasão de terreno público</string>
+    
+    <!-- TOGGLE -->
+    
+    <string name="tgl_ligado">On</string>
+    <string name="tgl_desligado">Off</string>
+
+</resources>

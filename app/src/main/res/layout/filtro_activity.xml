@@ -1,0 +1,1088 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TableLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:shrinkColumns="*"
+        android:stretchColumns="*" >
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/filtro"
+                android:text="@string/lbl_filtro" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/agua"
+                android:text="@string/lbl_agua" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/agua1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_ar1" />
+
+            <ToggleButton
+                android:id="@+id/toggle_agua1"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/agua2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_agua2" />
+
+            <ToggleButton
+                android:id="@+id/toggle_agua2"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/agua3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_agua3" />
+
+            <ToggleButton
+                android:id="@+id/toggle_agua3"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/agua4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_agua4" />
+
+            <ToggleButton
+                android:id="@+id/toggle_agua4"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/agua5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_agua5" />
+
+            <ToggleButton
+                android:id="@+id/toggle_agua5"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/agua6"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_agua6" />
+
+            <ToggleButton
+                android:id="@+id/toggle_agua6"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/ar"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_ar" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/ar1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_ar1" />
+
+            <ToggleButton
+                android:id="@+id/toggle_ar1"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/ar2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_ar2" />
+
+            <ToggleButton
+                android:id="@+id/toggle_ar2"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/ar3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_ar3" />
+
+            <ToggleButton
+                android:id="@+id/toggle_ar3"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/ar4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_ar4" />
+
+            <ToggleButton
+                android:id="@+id/toggle_ar4"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/ar5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_ar5" />
+
+            <ToggleButton
+                android:id="@+id/toggle_ar5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/solo"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_solo" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/solo1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_solo1" />
+
+            <ToggleButton
+                android:id="@+id/toggle_solo1"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/solo2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_solo2" />
+
+            <ToggleButton
+                android:id="@+id/toggle_solo2"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/solo3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_solo3" />
+
+            <ToggleButton
+                android:id="@+id/toggle_solo3"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/solo4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_solo4" />
+
+            <ToggleButton
+                android:id="@+id/toggle_solo4"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/solo5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_solo5" />
+
+            <ToggleButton
+                android:id="@+id/toggle_solo5"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/solo6"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_solo6" />
+
+            <ToggleButton
+                android:id="@+id/toggle_solo6"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/decp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_decp" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/decp1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_decp1" />
+
+            <ToggleButton
+                android:id="@+id/toggle_decp1"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/decp2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_decp2" />
+
+            <ToggleButton
+                android:id="@+id/toggle_decp2"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/decp3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_decp3" />
+
+            <ToggleButton
+                android:id="@+id/toggle_decp3"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/decp4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_decp4" />
+
+            <ToggleButton
+                android:id="@+id/toggle_decp4"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/invasao"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_invasao" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/invasao1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_invasao1" />
+
+            <ToggleButton
+                android:id="@+id/toggle_invasao1"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/invasao2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_invasao2" />
+
+            <ToggleButton
+                android:id="@+id/toggle_invasao2"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/ds"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_ds" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/ds1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_ds1" />
+
+            <ToggleButton
+                android:id="@+id/toggle_ds1"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/ds2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_ds2" />
+
+            <ToggleButton
+                android:id="@+id/toggle_ds2"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/ds3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_ds3" />
+
+            <ToggleButton
+                android:id="@+id/toggle_ds3"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/ds4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_ds4" />
+
+            <ToggleButton
+                android:id="@+id/toggle_ds4"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/ds5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_ds5" />
+
+            <ToggleButton
+                android:id="@+id/toggle_ds5"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/ds6"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_ds6" />
+
+            <ToggleButton
+                android:id="@+id/toggle_ds6"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/ds7"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_ds7" />
+
+            <ToggleButton
+                android:id="@+id/toggle_ds7"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/ds8"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_ds8" />
+
+            <ToggleButton
+                android:id="@+id/toggle_ds8"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/ds9"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_ds9" />
+
+            <ToggleButton
+                android:id="@+id/toggle_ds9"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/ds10"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_ds10" />
+
+            <ToggleButton
+                android:id="@+id/toggle_ds10"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/educacao"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_educacao" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/educacao1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_educacao1" />
+
+            <ToggleButton
+                android:id="@+id/toggle_educacao1"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/educacao2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_educacao2" />
+
+            <ToggleButton
+                android:id="@+id/toggle_educacao2"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/educacao3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_educacao3" />
+
+            <ToggleButton
+                android:id="@+id/toggle_educacao3"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/educacao4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_educacao4" />
+
+            <ToggleButton
+                android:id="@+id/toggle_educacao4"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/educacao5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_educacao5" />
+
+            <ToggleButton
+                android:id="@+id/toggle_educacao5"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/educacao6"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_educacao6" />
+
+            <ToggleButton
+                android:id="@+id/toggle_educacao6"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/saude"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_saude" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/saude1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_saude1" />
+
+            <ToggleButton
+                android:id="@+id/toggle_saude1"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/saude2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_saude2" />
+
+            <ToggleButton
+                android:id="@+id/toggle_saude2"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/saude3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_saude3" />
+
+            <ToggleButton
+                android:id="@+id/toggle_saude3"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/saude4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_saude4" />
+
+            <ToggleButton
+                android:id="@+id/toggle_saude4"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/saude5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_saude5" />
+
+            <ToggleButton
+                android:id="@+id/toggle_saude5"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/saude6"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_saude6" />
+
+            <ToggleButton
+                android:id="@+id/toggle_saude6"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/saude7"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_saude7" />
+
+            <ToggleButton
+                android:id="@+id/toggle_saude7"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/saude8"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_saude8" />
+
+            <ToggleButton
+                android:id="@+id/toggle_saude8"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/ie"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_ie" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/ie1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_ie1" />
+
+            <ToggleButton
+                android:id="@+id/toggle_ie1"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/ie2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_ie2" />
+
+            <ToggleButton
+                android:id="@+id/toggle_ie2"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/ie3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_ie3" />
+
+            <ToggleButton
+                android:id="@+id/toggle_ie3"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/ie4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_ie4" />
+
+            <ToggleButton
+                android:id="@+id/toggle_ie4"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/ie5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_ie5" />
+
+            <ToggleButton
+                android:id="@+id/toggle_ie5"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/ie6"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_ie6" />
+
+            <ToggleButton
+                android:id="@+id/toggle_ie6"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/ie7"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_ie7" />
+
+            <ToggleButton
+                android:id="@+id/toggle_ie7"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/ie8"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_ie8" />
+
+            <ToggleButton
+                android:id="@+id/toggle_ie8"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/ie9"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_ie9" />
+
+            <ToggleButton
+                android:id="@+id/toggle_ie9"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/ie10"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_ie10" />
+
+            <ToggleButton
+                android:id="@+id/toggle_ie10"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/ie11"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_ie11" />
+
+            <ToggleButton
+                android:id="@+id/toggle_ie11"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/ie12"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_ie12" />
+
+            <ToggleButton
+                android:id="@+id/toggle_ie12"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/invasaop"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_invasaop" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/invasaop1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_invasaop1" />
+
+            <ToggleButton
+                android:id="@+id/toggle_invasaop1"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/invasaop2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_invasaop2" />
+
+            <ToggleButton
+                android:id="@+id/toggle_invasaop2"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:textOff="@string/tgl_desligado"
+                android:textOn="@string/tgl_ligado" />
+        </TableRow>
+    </TableLayout>
+
+</ScrollView>

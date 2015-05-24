@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="br.com.labsi.gestaopublicaparticipativa" >
+
+    <permission
+        android:name="br.com.labsi.gestaopublicaparticipativa.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="br.com.labsi.finalcourseproject.MAPS_RECEIVE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity android:name="br.com.labsi.gestaopublicaparticipativa.MainActivity" android:label="@string/app_name" >
+
+        </activity>
+
+
+        <activity android:name="br.com.labsi.gestaopublicaparticipativa.FiltrarActivity" />
+        <activity android:name="br.com.labsi.gestaopublicaparticipativa.IndexActivity" />
+
+
+        <activity android:name="br.com.labsi.gestaopublicaparticipativa.CadastrarActivity" />
+        <activity android:name="br.com.labsi.gestaopublicaparticipativa.DenunciaAnonimaActivity" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+
+        </activity>
+        <activity android:name="br.com.labsi.gestaopublicaparticipativa.RecebeSubTemaActivity" />
+
+        <activity android:name="br.com.labsi.gestaopublicaparticipativa.SubTemaMainActivity" >
+
+        </activity>
+
+        <activity android:name="br.com.labsi.gestaopublicaparticipativa.LoginActivity" >
+
+        </activity>
+
+
+
+        <!-- Specifies the Android API Key, which is obtained from Google API Console -->
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyAMjigeDsSv_EFDYsth9oCXtD-Cls9oEQs" />
+    </application>
+
+</manifest>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

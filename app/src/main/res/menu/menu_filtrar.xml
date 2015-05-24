@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="br.com.labsi.finalcourseproject.MainActivity" >
+
+    <item
+        android:id="@+id/mapa"
+        android:orderInCategory="1"
+        android:title="Mapa"
+        android:showAsAction="ifRoom"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/denunciar"
+        android:orderInCategory="2"
+        android:title="Denunciar"
+        android:showAsAction="ifRoom"
+        app:showAsAction="always"/>
+
+</menu>
