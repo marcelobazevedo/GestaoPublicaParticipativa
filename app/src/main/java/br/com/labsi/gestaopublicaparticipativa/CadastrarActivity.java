@@ -2,8 +2,7 @@ package br.com.labsi.gestaopublicaparticipativa;
 
 /**
  * Created by Marcelo on 18/01/2015.
- * Teste do GitHub vamos ver se funciona
- */
+ **/
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
