@@ -26,4 +26,9 @@ public class TemaDTO implements Serializable {
     public void setTema(String tema) {
         this.tema = tema;
     }
+
+    @Override
+    public String toString() {
+        return tema;
+    }
 }
