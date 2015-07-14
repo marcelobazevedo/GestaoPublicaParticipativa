@@ -19,18 +19,18 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.labsi.gestaopublicaparticipativa.dto.SubTemaDTO;
+import br.com.labsi.gestaopublicaparticipativa.dto.TemaDTO;
 
 /**
  * Created by Marcelo on 25/01/2015.
  */
 public class TemaListFragment extends Fragment {
     LivrosTask mTask;
-    List<SubTemaDTO> mLivros;
+    List<TemaDTO> mLivros;
     ListView mListView;
     TextView mTextMensagem;
     ProgressBar mProgressBar;
-    ArrayAdapter<SubTemaDTO> mAdapter;
+    ArrayAdapter<TemaDTO> mAdapter;
 
     Context context;
 
@@ -44,7 +44,7 @@ public class TemaListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View layout = inflater.inflate(R.layout.fragment_subtema_list, null);
+        View layout = inflater.inflate(R.layout.fragment_tema_list, null);
         mTextMensagem = (TextView) layout.findViewById(android.R.id.empty);
         mProgressBar = (ProgressBar) layout.findViewById(R.id.progressBar);
         mListView = (ListView) layout.findViewById(R.id.list);
@@ -56,12 +56,12 @@ public class TemaListFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         if (mLivros == null) {
-            mLivros = new ArrayList<SubTemaDTO>();
+            mLivros = new ArrayList<TemaDTO>();
         }
-        mAdapter = new ArrayAdapter<SubTemaDTO>(getActivity(), android.R.layout.simple_list_item_1, mLivros);
+        mAdapter = new ArrayAdapter<TemaDTO>(getActivity(), android.R.layout.simple_list_item_1, mLivros);
         mListView.setAdapter(mAdapter);
         if (mTask == null) {
-            if (SubTemaHttp.temConexao(getActivity())) {
+            if (TemaHttp.temConexao(getActivity())) {
                 iniciarDownload();
             } else {
                 mTextMensagem.setText("Sem conexão");
@@ -73,11 +73,11 @@ public class TemaListFragment extends Fragment {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                SubTemaDTO tema = new SubTemaDTO();
-                SubTemaDTO subTemaDTO = (SubTemaDTO) parent.getItemAtPosition(position);
+                TemaDTO tema = new TemaDTO();
+                TemaDTO TemaDTO = (TemaDTO) parent.getItemAtPosition(position);
 
              Intent intent = new Intent(getActivity(), RecebeSubTemaActivity.class);
-                intent.putExtra("codigo", subTemaDTO.getIdSubTema().toString());
+                intent.putExtra("codigo", TemaDTO.getIdTema().toString());
                 startActivity(intent);
 
 //gera um toast
@@ -105,7 +105,7 @@ public class TemaListFragment extends Fragment {
         }
     }
 
-    class LivrosTask extends AsyncTask<Void, Void, List<SubTemaDTO>> {
+    class LivrosTask extends AsyncTask<Void, Void, List<TemaDTO>> {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -113,13 +113,13 @@ public class TemaListFragment extends Fragment {
         }
 
         @Override
-        protected List<SubTemaDTO> doInBackground(Void... strings) {
-            return SubTemaHttp.carregarLivrosJson();
+        protected List<TemaDTO> doInBackground(Void... strings) {
+            return TemaHttp.carregarLivrosJson();
 
         }
 
         @Override
-        protected void onPostExecute(List<SubTemaDTO> livros) {
+        protected void onPostExecute(List<TemaDTO> livros) {
             super.onPostExecute(livros);
             exibirProgress(false);
             if (livros != null) {
