@@ -25,6 +25,7 @@ public class CadastrarActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastrar);
 
+        Intent it = getIntent();
         edtNome = (EditText)findViewById(R.id.edt_nome);
         edtEmail= (EditText) findViewById(R.id.edt_email);
         edtDataNascimento= (EditText) findViewById(R.id.edt_data_nascimento);

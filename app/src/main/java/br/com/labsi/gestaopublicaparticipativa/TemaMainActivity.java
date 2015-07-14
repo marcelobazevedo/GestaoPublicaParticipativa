@@ -12,7 +12,7 @@ public class TemaMainActivity extends AppCompatActivity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activitu_main_subtema);
+            setContentView(R.layout.activity_main_tema);
 
         }
     }

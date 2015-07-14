@@ -20,12 +20,15 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMap.OnMapClickListener;
+import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -34,6 +37,10 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class DenunciaAnonimaActivity extends FragmentActivity {
     GoogleMap mGoogleMap;
+
+    public DenunciaAnonimaActivity() {
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,24 +52,38 @@ public class DenunciaAnonimaActivity extends FragmentActivity {
         SupportMapFragment fragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
 
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.map, fragment);
+        transaction.commit();
+
         // Creating GoogleMap from SupportMapFragment
-        mGoogleMap = fragment.getMap();
-
-        // Enabling MyLocation button for the Google Map
-        mGoogleMap.setMyLocationEnabled(true);
-
-        // Setting OnClickEvent listener for the GoogleMap
-        mGoogleMap.setOnMapClickListener(new OnMapClickListener() {
+        OnMapReadyCallback callback = new OnMapReadyCallback() {
             @Override
-            public void onMapClick(LatLng latlng) {
-                addMarker(latlng);
-                sendToServer(latlng);
+            public void onMapReady(GoogleMap googleMap) {
+                mGoogleMap = googleMap;
+
+                googleMap.setMyLocationEnabled(true);
+
+                // Setting OnClickEvent listener for the GoogleMap
+                mGoogleMap.setOnMapClickListener(new OnMapClickListener() {
+                    @Override
+                    public void onMapClick(LatLng latlng) {
+                        addMarker(latlng);
+                        sendToServer(latlng);
+                    }
+                });
+
+                googleMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+                    @Override
+                    public void onInfoWindowClick(Marker marker) {
+                        marker.remove();
+                    }
+                });
+                // Starting locations retrieve task
+                new RetrieveTask().execute();
             }
-        });
-
-        // Starting locations retrieve task
-        new RetrieveTask().execute();
-
+        };
+        fragment.getMapAsync(callback);
     }
 
     @Override
@@ -95,6 +116,7 @@ public class DenunciaAnonimaActivity extends FragmentActivity {
 
     // Adding marker on the GoogleMaps
     private void addMarker(LatLng latlng) {
+
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(latlng);
         markerOptions.title(latlng.latitude + "," + latlng.longitude);
@@ -103,15 +125,8 @@ public class DenunciaAnonimaActivity extends FragmentActivity {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Setting click event handler for InfoWIndow
-    mGoogleMap.setOnInfoWindowClickListener(new OnInfoWindowClickListener() {
 
 
-        @Override
-        public void onInfoWindowClick(Marker marker) {
-            // Remove the marker
-            marker.remove();
-        }
-    });
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
