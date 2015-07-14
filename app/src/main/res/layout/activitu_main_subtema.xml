@@ -8,4 +8,13 @@
         android:name="br.com.labsi.gestaopublicaparticipativa.SubTemaListFragment"
         android:id="@+id/listFragment" />
 
+    <!--
+    <ToggleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New ToggleButton"
+        android:id="@+id/toggleButton"
+        android:layout_gravity="right|top" />
+        -->
+
 </FrameLayout>
