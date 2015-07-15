@@ -31,11 +31,13 @@
         <activity android:name="br.com.labsi.gestaopublicaparticipativa.DenunciaAnonimaActivity" />
         <activity android:name="br.com.labsi.gestaopublicaparticipativa.CadastrarActivity" />
 
-        <activity android:name="br.com.labsi.gestaopublicaparticipativa.SubTemaMainActivity" >
-        <intent-filter>
+        <activity android:name="br.com.labsi.gestaopublicaparticipativa.TemaMainActivity" />
+
+            <activity android:name="br.com.labsi.gestaopublicaparticipativa.SubTemaMainActivity" >
+            <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+            </intent-filter>
 
         </activity>
         <activity android:name="br.com.labsi.gestaopublicaparticipativa.RecebeSubTemaActivity" />
