@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -26,7 +27,9 @@ import br.com.labsi.gestaopublicaparticipativa.dto.SubTemaDTO;
 /**
  * Created by Marcelo on 25/01/2015.
  */
-public class SubTemaListFragment extends Fragment {
+//public class SubTemaListFragment extends Fragment {
+public class SubTemaListFragment extends android.support.v4.app.Fragment {
+
     LivrosTask mTask;
     List<SubTemaDTO> mLivros;
     ListView mListView;
@@ -35,11 +38,11 @@ public class SubTemaListFragment extends Fragment {
     ArrayAdapter<SubTemaDTO> mAdapter;
 
     Context context;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
+
         getEmail();
     }
 
@@ -116,7 +119,8 @@ public class SubTemaListFragment extends Fragment {
 
         @Override
         protected List<SubTemaDTO> doInBackground(Void... strings) {
-            return SubTemaHttp.carregarLivrosJson();
+            //return SubTemaHttp.carregarLivrosJson("http://www.ase-jf.com.br/gpp/listasubtema.php"+"?cod="+1);
+           return SubTemaHttp.carregarLivrosJson("sss");
 
         }
 

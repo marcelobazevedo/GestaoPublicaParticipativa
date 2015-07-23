@@ -26,6 +26,7 @@ public class SubTemaHttp {
             "http://www.ase-jf.com.br/gpp/listasubtema.php";
 
 
+
     private static HttpURLConnection connectar(String urlArquivo) throws IOException {
         final int SEGUNDOS = 1000;
         URL url = new URL(urlArquivo);
@@ -47,9 +48,11 @@ public class SubTemaHttp {
     }
 
 
-    public static List<SubTemaDTO> carregarLivrosJson() {
+   //public static List<SubTemaDTO> carregarLivrosJson() {
+   public static List<SubTemaDTO> carregarLivrosJson(String url) {
         try {
-            HttpURLConnection conexao = connectar(LIVROS_URL_JSON);
+          // HttpURLConnection conexao = connectar(LIVROS_URL_JSON);
+            HttpURLConnection conexao = connectar(url);
             int resposta = conexao.getResponseCode();
             if (resposta == HttpURLConnection.HTTP_OK) {
                 InputStream is = conexao.getInputStream();

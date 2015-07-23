@@ -32,8 +32,11 @@
         <activity android:name="br.com.labsi.gestaopublicaparticipativa.CadastrarActivity" />
 
         <activity android:name="br.com.labsi.gestaopublicaparticipativa.TemaMainActivity" />
+        <activity android:name="br.com.labsi.gestaopublicaparticipativa.SubTemaMainActivity" />
 
-            <activity android:name="br.com.labsi.gestaopublicaparticipativa.SubTemaMainActivity" >
+        <activity android:name="br.com.labsi.gestaopublicaparticipativa.SubTemaMainActivity2" />
+
+            <activity android:name="br.com.labsi.gestaopublicaparticipativa.TemaMainActivity2" >
             <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
