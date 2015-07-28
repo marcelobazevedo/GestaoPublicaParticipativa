@@ -19,12 +19,22 @@ public class IndexActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_index);
         ActionBar actionBar = getActionBar();
-//        actionBar.setTitle("GP2M");
+
 
 
         Button botaoLogar = (Button) findViewById(R.id.botaoLogar);
         Button botaoCadastrar = (Button) findViewById(R.id.botaoCadastrar);
         Button botaoAnonimo = (Button) findViewById(R.id.botaoAnonimo);
+        Button botaoListarTodos = (Button) findViewById(R.id.botaoListarTodos);
+        Button botaoLogarComEmail = (Button)findViewById(R.id.botaoLogarComEmail);
+
+
+        botaoLogarComEmail.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent i = new Intent(IndexActivity.this, LoginActivity.class);
+                startActivity(i);
+            }
+        });
 
         botaoLogar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -42,7 +52,14 @@ public class IndexActivity extends Activity {
 
         botaoAnonimo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent i = new Intent(IndexActivity.this, DenunciaAnonimaActivity.class);
+                Intent i = new Intent(IndexActivity.this, DenunciaAnonimaActivity3.class);
+                startActivity(i);
+            }
+        });
+
+        botaoListarTodos.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent i = new Intent(IndexActivity.this, AllReportsActivity.class);
                 startActivity(i);
             }
         });

@@ -76,7 +76,7 @@ public class SubTemaListFragmentURL extends android.support.v4.app.Fragment {
                 SubTemaDTO tema = new SubTemaDTO();
                 SubTemaDTO subTemaDTO = (SubTemaDTO) parent.getItemAtPosition(position);
 
-                Intent intent = new Intent(getActivity(), RecebeSubTemaActivity.class);
+                Intent intent = new Intent(getActivity(), DenunciaAnonimaActivity3.class);
                 intent.putExtra("codigo", subTemaDTO.getIdSubTema().toString());
                 startActivity(intent);
 

@@ -3,6 +3,28 @@ package br.com.labsi.gestaopublicaparticipativa;
 /**
  * Created by Marcelo on 18/01/2015.
  */
+
+import android.app.ActionBar;
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.GoogleMap.OnMapClickListener;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,33 +36,17 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
-import android.app.ActionBar;
-import android.content.Intent;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTransaction;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.GoogleMap.OnMapClickListener;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 import br.com.labsi.gestaopublicaparticipativa.dto.DenunciaDTO;
 import br.com.labsi.gestaopublicaparticipativa.dto.TemaDTO;
 
 
-public class DenunciaAnonimaActivity extends FragmentActivity {
+public class DenunciaAnonimaActivity2 extends FragmentActivity {
     GoogleMap mGoogleMap;
+
+    public DenunciaAnonimaActivity2() {
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +76,7 @@ public class DenunciaAnonimaActivity extends FragmentActivity {
                     @Override
                     public void onMapClick(LatLng latlng) {
                         addMarker(latlng);
-                        sendToServer(latlng);
+                       // sendToServer(latlng); envia para o servidor
                     }
                 });
 
@@ -87,6 +93,7 @@ public class DenunciaAnonimaActivity extends FragmentActivity {
         fragment.getMapAsync(callback);
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -100,13 +107,13 @@ public class DenunciaAnonimaActivity extends FragmentActivity {
         int idMenuItem = item.getItemId();
         switch (idMenuItem) {
             case R.id.filtro:
-                Intent it = new Intent(DenunciaAnonimaActivity.this, FiltrarActivity.class);
+                Intent it = new Intent(DenunciaAnonimaActivity2.this, FiltrarActivity.class);
                 startActivity(it);
                 // finish();
                 break;
 
             case R.id.denunciar:
-                Intent its = new Intent(DenunciaAnonimaActivity.this, IndexActivity.class);
+                Intent its = new Intent(DenunciaAnonimaActivity2.this, IndexActivity.class);
                 startActivity(its);
                 // finish();
                 break;
@@ -124,27 +131,28 @@ public class DenunciaAnonimaActivity extends FragmentActivity {
         mGoogleMap.addMarker(markerOptions);
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // Setting click event handler for InfoWIndow
-
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-    // Invoking background thread to store the touched location in Remove MySQL
-    // server
     private void sendToServer(LatLng latlng) {
-        new SaveTask().execute(latlng);
+        String ltd=Double.toString(latlng.latitude);
+        String lgt=Double.toString(latlng.longitude);
+        String idusuario="1";
+        String idsubtema="1";
+        String obs="teste de observacao";
+        new SaveTask().execute(ltd, lgt, idusuario, idsubtema, obs);
     }
 
     // Background thread to save the location in remove MySQL server
-    private class SaveTask extends AsyncTask<LatLng, Void, Void> {
+    private class SaveTask extends AsyncTask<String, Void, Void> {
         @Override
-        protected Void doInBackground(LatLng... params) {
-            String lat = Double.toString(params[0].latitude);
-            String lng = Double.toString(params[0].longitude);
+        protected Void doInBackground(String... params) {
+          //  String lat = Double.toString(params[0].latitude);
+          //  String lng = Double.toString(params[0].longitude);
+
+            String lat = params[0];
+            String lng = params[1];
+            String id = params[2];
+            String idstm = params[3];
+            String obsv = params[4];
+
             String strUrl = "http://www.ase-jf.com.br/gpp/save.php";
 
             URL url = null;
@@ -158,7 +166,7 @@ public class DenunciaAnonimaActivity extends FragmentActivity {
                 OutputStreamWriter outputStreamWriter = new OutputStreamWriter(
                         connection.getOutputStream());
 
-                outputStreamWriter.write("lat=" + lat + "&lng=" + lng);
+                outputStreamWriter.write("lat=" + lat + "&lng=" + lng + "&idusuario=" + id + "&idsubtema=" + idstm + "&obs=" + obsv);
                 outputStreamWriter.flush();
                 outputStreamWriter.close();
 
@@ -187,7 +195,7 @@ public class DenunciaAnonimaActivity extends FragmentActivity {
         }
 
     }
-
+/////////////////////////////////////////////////////////////////////////////AQUI PRA BAIXO LE OS DADOS E POPULA O MAPA///////////////////////////////////////////////////////
     // Background task to retrieve locations from remote mysql server
     private class RetrieveTask extends AsyncTask<Void, Void, String> {
 

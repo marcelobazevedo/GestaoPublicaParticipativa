@@ -26,9 +26,9 @@
 
 
         <activity android:name="br.com.labsi.gestaopublicaparticipativa.FiltrarActivity" />
-       <activity android:name="br.com.labsi.gestaopublicaparticipativa.IndexActivity" />
 
-        <activity android:name="br.com.labsi.gestaopublicaparticipativa.DenunciaAnonimaActivity" />
+
+
         <activity android:name="br.com.labsi.gestaopublicaparticipativa.CadastrarActivity" />
 
         <activity android:name="br.com.labsi.gestaopublicaparticipativa.TemaMainActivity" />
@@ -36,7 +36,15 @@
 
         <activity android:name="br.com.labsi.gestaopublicaparticipativa.SubTemaMainActivity2" />
 
-            <activity android:name="br.com.labsi.gestaopublicaparticipativa.TemaMainActivity2" >
+        <activity android:name="br.com.labsi.gestaopublicaparticipativa.DenunciaAnonimaActivity" />
+
+        <activity android:name="br.com.labsi.gestaopublicaparticipativa.AllReportsActivity" />
+
+        <activity android:name="br.com.labsi.gestaopublicaparticipativa.DenunciaAnonimaActivity3" />
+        <activity android:name="br.com.labsi.gestaopublicaparticipativa.DenunciaAnonimaActivity2" />
+        <activity android:name="br.com.labsi.gestaopublicaparticipativa.TemaMainActivity2" />
+
+            <activity android:name="br.com.labsi.gestaopublicaparticipativa.IndexActivity" >
             <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />

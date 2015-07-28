@@ -3,30 +3,20 @@ package br.com.labsi.gestaopublicaparticipativa;
 /**
  * Created by Marcelo on 18/01/2015.
  */
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
+
 import android.app.ActionBar;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMap.OnMapClickListener;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -35,12 +25,31 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import br.com.labsi.gestaopublicaparticipativa.dto.DenunciaDTO;
-import br.com.labsi.gestaopublicaparticipativa.dto.TemaDTO;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.List;
 
 
-public class DenunciaAnonimaActivity extends FragmentActivity {
+public class DenunciaAnonimaActivity3 extends FragmentActivity implements EditNameDialog.EditNameDialogListener {
     GoogleMap mGoogleMap;
+
+    public String idUsuario="0";
+    public String idSubTema="";
+    public LatLng coordenadas;
+
+    public DenunciaAnonimaActivity3() {
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +57,16 @@ public class DenunciaAnonimaActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
         ActionBar actionBar = getActionBar();
        // actionBar.setTitle("GP2M");
+
+        Intent intent = getIntent();
+        if(intent!=null){
+            Bundle params = intent.getExtras();
+            if(params!=null){
+                idSubTema = params.getString("codigo");
+
+            }
+        }
+
 
         // Getting reference to SupportMapFragment
         SupportMapFragment fragment = (SupportMapFragment) getSupportFragmentManager()
@@ -70,7 +89,9 @@ public class DenunciaAnonimaActivity extends FragmentActivity {
                     @Override
                     public void onMapClick(LatLng latlng) {
                         addMarker(latlng);
-                        sendToServer(latlng);
+                        coordenadas=latlng;
+                        showEditDialog();
+                       // sendToServer(latlng); envia para o servidor
                     }
                 });
 
@@ -87,6 +108,7 @@ public class DenunciaAnonimaActivity extends FragmentActivity {
         fragment.getMapAsync(callback);
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -100,13 +122,13 @@ public class DenunciaAnonimaActivity extends FragmentActivity {
         int idMenuItem = item.getItemId();
         switch (idMenuItem) {
             case R.id.filtro:
-                Intent it = new Intent(DenunciaAnonimaActivity.this, FiltrarActivity.class);
+                Intent it = new Intent(DenunciaAnonimaActivity3.this, FiltrarActivity.class);
                 startActivity(it);
                 // finish();
                 break;
 
             case R.id.denunciar:
-                Intent its = new Intent(DenunciaAnonimaActivity.this, IndexActivity.class);
+                Intent its = new Intent(DenunciaAnonimaActivity3.this, IndexActivity.class);
                 startActivity(its);
                 // finish();
                 break;
@@ -115,36 +137,52 @@ public class DenunciaAnonimaActivity extends FragmentActivity {
         return true;
     }
 
-    // Adding marker on the GoogleMaps
+    // Adicionando o marker no GoogleMap
     private void addMarker(LatLng latlng) {
 
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(latlng);
         markerOptions.title(latlng.latitude + "," + latlng.longitude);
         mGoogleMap.addMarker(markerOptions);
+
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // Setting click event handler for InfoWIndow
+    private void showEditDialog() {
+        FragmentManager fm = getSupportFragmentManager();
+        EditNameDialog editNameDialog = new EditNameDialog();
+        editNameDialog.show(fm, "fragment_edit_name");
+    }
 
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public void onFinishEditDialog(String inputText) {
+        Toast.makeText(this, "Hi, " + inputText, Toast.LENGTH_SHORT).show();
+    }
+
+    public void excluirMarker(){
+        mGoogleMap.clear();
+    }
 
 
-
-
-    // Invoking background thread to store the touched location in Remove MySQL
-    // server
-    private void sendToServer(LatLng latlng) {
-        new SaveTask().execute(latlng);
+    //public void sendToServer(LatLng latlng) {
+        public void sendToServer(String observacao) {
+        String ltd=Double.toString(coordenadas.latitude);
+        String lgt=Double.toString(coordenadas.longitude);
+        String idusuario=idUsuario;
+        String idsubtema=idSubTema;
+        String obs=observacao;
+        new SaveTask().execute(ltd, lgt, idusuario, idsubtema, obs);
     }
 
     // Background thread to save the location in remove MySQL server
-    private class SaveTask extends AsyncTask<LatLng, Void, Void> {
+    private class SaveTask extends AsyncTask<String, Void, Void> {
         @Override
-        protected Void doInBackground(LatLng... params) {
-            String lat = Double.toString(params[0].latitude);
-            String lng = Double.toString(params[0].longitude);
+        protected Void doInBackground(String... params) {
+            String lat = params[0];
+            String lng = params[1];
+            String id = params[2];
+            String idstm = params[3];
+            String obsv = params[4];
+
             String strUrl = "http://www.ase-jf.com.br/gpp/save.php";
 
             URL url = null;
@@ -158,7 +196,7 @@ public class DenunciaAnonimaActivity extends FragmentActivity {
                 OutputStreamWriter outputStreamWriter = new OutputStreamWriter(
                         connection.getOutputStream());
 
-                outputStreamWriter.write("lat=" + lat + "&lng=" + lng);
+                outputStreamWriter.write("lat=" + lat + "&lng=" + lng + "&idusuario=" + id + "&idsubtema=" + idstm + "&obs=" + obsv);
                 outputStreamWriter.flush();
                 outputStreamWriter.close();
 
@@ -187,7 +225,7 @@ public class DenunciaAnonimaActivity extends FragmentActivity {
         }
 
     }
-
+/////////////////////////////////////////////////////////////////////////////AQUI PRA BAIXO LE OS DADOS E POPULA O MAPA///////////////////////////////////////////////////////
     // Background task to retrieve locations from remote mysql server
     private class RetrieveTask extends AsyncTask<Void, Void, String> {
 

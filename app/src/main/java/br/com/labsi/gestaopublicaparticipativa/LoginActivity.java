@@ -53,7 +53,7 @@ public class LoginActivity extends Activity {
         protected void onPostExecute(String resultado) {
             progressDialog.dismiss();
             if (resultado!="") {
-                Intent intent = new Intent(LoginActivity.this, SubTemaMainActivity.class);
+                Intent intent = new Intent(LoginActivity.this, TemaMainActivity2.class);
                 startActivity(intent);
                 //  Log.i("Exception", "achou " + possibleEmail + "o número é " + numero);
             } else {
