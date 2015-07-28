@@ -22,5 +22,16 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Cadastrar" />
+    <Button
+        android:id="@+id/botaoListarTodos"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Listar Todas as Denuncias" />
+
+    <Button
+        android:id="@+id/botaoLogarComEmail"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Logar usando o email" />
 
 </LinearLayout>
