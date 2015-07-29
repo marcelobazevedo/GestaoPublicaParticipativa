@@ -142,8 +142,13 @@ public class AllReportsActivity extends FragmentActivity {
 
         @Override
         protected void onPostExecute(String result) {
-            super.onPostExecute(result);
-            new ParserTask().execute(result);
+            if(result.length()>20) {
+                super.onPostExecute(result);
+                new ParserTask().execute(result);
+            }else{
+                Toast toast = Toast.makeText(AllReportsActivity.this, "Nao existe denuncias", Toast.LENGTH_LONG);
+                toast.show();
+            }
         }
 
     }

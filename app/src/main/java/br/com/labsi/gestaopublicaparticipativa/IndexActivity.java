@@ -52,7 +52,7 @@ public class IndexActivity extends Activity {
 
         botaoAnonimo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent i = new Intent(IndexActivity.this, DenunciaAnonimaActivity3.class);
+                Intent i = new Intent(IndexActivity.this, TemaMainActivity2.class);
                 startActivity(i);
             }
         });

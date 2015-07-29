@@ -102,7 +102,7 @@ public class DenunciaAnonimaActivity3 extends FragmentActivity implements EditNa
                     }
                 });
                 // Starting locations retrieve task
-                new RetrieveTask().execute();
+                //new RetrieveTask().execute();
             }
         };
         fragment.getMapAsync(callback);
@@ -227,12 +227,12 @@ public class DenunciaAnonimaActivity3 extends FragmentActivity implements EditNa
     }
 /////////////////////////////////////////////////////////////////////////////AQUI PRA BAIXO LE OS DADOS E POPULA O MAPA///////////////////////////////////////////////////////
     // Background task to retrieve locations from remote mysql server
+
     private class RetrieveTask extends AsyncTask<Void, Void, String> {
 
         @Override
         protected String doInBackground(Void... params) {
             String strUrl = "http://www.ase-jf.com.br/gpp/retrieve.php";
-            //String strUrl = "http://192.168.25.157:8080/Webservice/denuncia/listarTodos";
 
             URL url = null;
             StringBuffer sb = new StringBuffer();
