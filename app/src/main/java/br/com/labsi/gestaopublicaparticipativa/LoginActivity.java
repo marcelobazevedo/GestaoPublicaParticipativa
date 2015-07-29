@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 
 /**
@@ -37,6 +38,8 @@ public class LoginActivity extends Activity {
         } catch (Exception e) {
             Log.i("Exception", "Exception:" + e);
         }
+       // Toast toast = Toast.makeText(LoginActivity.this, possibleEmail, Toast.LENGTH_LONG);
+        //toast.show();
         return  possibleEmail;
     }
 
