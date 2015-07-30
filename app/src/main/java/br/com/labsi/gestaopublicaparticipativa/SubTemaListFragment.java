@@ -81,13 +81,9 @@ public class SubTemaListFragment extends android.support.v4.app.Fragment {
                 SubTemaDTO tema = new SubTemaDTO();
                 SubTemaDTO subTemaDTO = (SubTemaDTO) parent.getItemAtPosition(position);
 
-             Intent intent = new Intent(getActivity(), RecebeSubTemaActivity.class);
+                Intent intent = new Intent(getActivity(), RecebeSubTemaActivity.class);
                 intent.putExtra("codigo", subTemaDTO.getIdSubTema().toString());
                 startActivity(intent);
-
-//gera um toast
-                //Toast toast = Toast.makeText(getActivity(), subTemaDTO.getIdSubTema().toString(), Toast.LENGTH_SHORT);
-                //toast.show();
             }
         });
 
