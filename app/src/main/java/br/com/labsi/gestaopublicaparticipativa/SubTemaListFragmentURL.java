@@ -132,24 +132,9 @@ public class SubTemaListFragmentURL extends android.support.v4.app.Fragment {
                 mLivros.addAll(livros);
                 mAdapter.notifyDataSetChanged();
             } else {
-                mTextMensagem.setText("Falha ao obter temas");
+                mTextMensagem.setText("Falha ao obter subtemas");
             }
         }
     }
 
-
-
-    private String getEmail() {
-        try {
-            AccountManager accountManager = AccountManager.get(getActivity());
-            Account[] accounts = accountManager.getAccountsByType("com.google");
-            if (accounts.length > 0) {
-                Account account = accounts[0];
-                return account.name;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
 }
