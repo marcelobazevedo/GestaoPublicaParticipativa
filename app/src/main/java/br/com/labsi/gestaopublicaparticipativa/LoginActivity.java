@@ -25,6 +25,8 @@ public class LoginActivity extends Activity {
           LoginAsync loginAsync = new LoginAsync();
         String params[] = new String[3];
         params[0] = exibirEmail();
+      //  Toast toast = Toast.makeText(LoginActivity.this, params[0], Toast.LENGTH_LONG);
+      //  toast.show();
         loginAsync.execute(params);
     }
 
@@ -38,8 +40,7 @@ public class LoginActivity extends Activity {
         } catch (Exception e) {
             Log.i("Exception", "Exception:" + e);
         }
-       // Toast toast = Toast.makeText(LoginActivity.this, possibleEmail, Toast.LENGTH_LONG);
-        //toast.show();
+
         return  possibleEmail;
     }
 
@@ -55,6 +56,8 @@ public class LoginActivity extends Activity {
         @Override
         protected void onPostExecute(String resultado) {
             progressDialog.dismiss();
+            Toast toast = Toast.makeText(LoginActivity.this, resultado, Toast.LENGTH_LONG);
+            toast.show();
             if (resultado!="") {
                 Intent intent = new Intent(LoginActivity.this, TemaMainActivity2.class);
                 startActivity(intent);
@@ -72,6 +75,8 @@ public class LoginActivity extends Activity {
             if(email != ""){
                 LoginHttp loginHttp = new LoginHttp();
                 codigo=loginHttp.validarLoginRest(email);
+             //  Toast toast = Toast.makeText(LoginActivity.this, codigo, Toast.LENGTH_LONG);
+              // toast.show();
             }
             return codigo;
         }

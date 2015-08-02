@@ -31,7 +31,7 @@ public class EditNameDialog extends DialogFragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_edit_name, container);
         mEditText = (EditText) view.findViewById(R.id.txt_your_name);
-        getDialog().setTitle("Descreva a sua denúncia");
+        getDialog().setTitle("Descreva a sua denuncia");
 
 
         Button btExit = (Button) view.findViewById(R.id.btExit);
