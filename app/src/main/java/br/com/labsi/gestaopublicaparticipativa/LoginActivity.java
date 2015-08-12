@@ -10,17 +10,20 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import br.com.labsi.gestaopublicaparticipativa.dto.SubTemaDTO;
+import br.com.labsi.gestaopublicaparticipativa.dto.UsuarioDTO;
+
 
 /**
  * Created by Marcelo on 28/01/2015.
  */
 public class LoginActivity extends Activity {
 
-
-    @Override
+   @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         //   final TextView accountsData = (TextView) findViewById(R.id.accounts);
           LoginAsync loginAsync = new LoginAsync();
         String params[] = new String[3];
@@ -56,10 +59,18 @@ public class LoginActivity extends Activity {
         @Override
         protected void onPostExecute(String resultado) {
             progressDialog.dismiss();
-            Toast toast = Toast.makeText(LoginActivity.this, resultado, Toast.LENGTH_LONG);
-            toast.show();
+           // Toast toast = Toast.makeText(LoginActivity.this, resultado, Toast.LENGTH_LONG);
+           // toast.show();
+
             if (resultado!="") {
+
+                TodaAplicacao todaAplicacao = (TodaAplicacao)getApplicationContext();
+                todaAplicacao.setIdUsuario(resultado);
+
+                //Toast toast = Toast.makeText(LoginActivity.this, "o codigo e "+todaAplicacao.getIdUsuario(), Toast.LENGTH_LONG);
+                //toast.show();
                 Intent intent = new Intent(LoginActivity.this, TemaMainActivity2.class);
+                //intent.putExtra("idUsuario", resultado);
                 startActivity(intent);
                 //  Log.i("Exception", "achou " + possibleEmail + "o número é " + numero);
             } else {

@@ -58,9 +58,8 @@ public class UsuarioJSONParser {
         HashMap<String, String> usuario = new HashMap<String, String>();
         String idUsuario = "";
         String email ="";
-        String nomeUsuario = "";
         String nome ="";
-        String sexo = "";
+        String senha = "";
 
 
 
@@ -75,24 +74,19 @@ public class UsuarioJSONParser {
             if(!jUsuario.isNull("email")){
                 email = jUsuario.getString("email");
             }
-            // Extracting longitude, if available
-            if(!jUsuario.isNull("nomeUsuario")){
-                nomeUsuario = jUsuario.getString("nomeUsuario");
-            }
-            // Extracting longitude, if available
+           // Extracting longitude, if available
             if(!jUsuario.isNull("nome")){
                 nome = jUsuario.getString("nome");
             }
             // Extracting longitude, if available
-            if(!jUsuario.isNull("sexo")){
-                sexo = jUsuario.getString("sexo");
+            if(!jUsuario.isNull("senha")){
+                senha = jUsuario.getString("senha");
             }
 
             usuario.put("idUsuario", idUsuario);
             usuario.put("email", email);
-            usuario.put("nomeUsuario", nomeUsuario);
             usuario.put("nome", nome);
-            usuario.put("sexo", sexo);
+            usuario.put("senha", senha);
 
 
         } catch (JSONException e) {

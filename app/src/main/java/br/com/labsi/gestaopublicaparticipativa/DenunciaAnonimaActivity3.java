@@ -6,24 +6,34 @@ package br.com.labsi.gestaopublicaparticipativa;
 
 import android.app.ActionBar;
 import android.content.Intent;
+import android.graphics.Color;
+import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMap.OnMapClickListener;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -40,15 +50,24 @@ import java.util.HashMap;
 import java.util.List;
 
 
-public class DenunciaAnonimaActivity3 extends FragmentActivity implements EditNameDialog.EditNameDialogListener {
-    GoogleMap mGoogleMap;
 
-    public String idUsuario="0";
+
+//public class DenunciaAnonimaActivity3 extends FragmentActivity implements EditNameDialog.EditNameDialogListener {
+public class DenunciaAnonimaActivity3 extends FragmentActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
+    GoogleMap mGoogleMap;
+    private SupportMapFragment mapFragment;
+    private GoogleApiClient mGoogleApiClient;
+
+    public String idUsuario;
     public String idSubTema="";
     public LatLng coordenadas;
 
+
+
+
     public DenunciaAnonimaActivity3() {
     }
+
 
 
     @Override
@@ -57,6 +76,18 @@ public class DenunciaAnonimaActivity3 extends FragmentActivity implements EditNa
         setContentView(R.layout.activity_main);
         ActionBar actionBar = getActionBar();
        // actionBar.setTitle("GP2M");
+
+             TodaAplicacao todaAplicacao=(TodaAplicacao)getApplicationContext();
+             if(todaAplicacao.getIdUsuario()!="")
+             {
+                 idUsuario=todaAplicacao.getIdUsuario();
+             }else{
+                 idUsuario="0";
+             }
+
+           // Toast toast = Toast.makeText(DenunciaAnonimaActivity3.this, "esperando o usuario "+todaAplicacao.getIdUsuario(), Toast.LENGTH_LONG);
+            //toast.show();
+
 
         Intent intent = getIntent();
         if(intent!=null){
@@ -76,6 +107,14 @@ public class DenunciaAnonimaActivity3 extends FragmentActivity implements EditNa
         transaction.replace(R.id.map, fragment);
         transaction.commit();
 
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .addApi(LocationServices.API)
+                .build();
+
+
+
         // Creating GoogleMap from SupportMapFragment
         OnMapReadyCallback callback = new OnMapReadyCallback() {
             @Override
@@ -83,15 +122,19 @@ public class DenunciaAnonimaActivity3 extends FragmentActivity implements EditNa
                 mGoogleMap = googleMap;
 
                 googleMap.setMyLocationEnabled(true);
+               // location = googleMap.getMyLocation();
+               // CameraUpdate position = CameraUpdateFactory.newLatLngZoom(location, 15);
+
+
 
                 // Setting OnClickEvent listener for the GoogleMap
                 mGoogleMap.setOnMapClickListener(new OnMapClickListener() {
                     @Override
                     public void onMapClick(LatLng latlng) {
                         addMarker(latlng);
-                        coordenadas=latlng;
+                        coordenadas = latlng;
                         showEditDialog();
-                       // sendToServer(latlng); envia para o servidor
+                        // sendToServer(latlng); envia para o servidor
                     }
                 });
 
@@ -107,7 +150,69 @@ public class DenunciaAnonimaActivity3 extends FragmentActivity implements EditNa
         };
         fragment.getMapAsync(callback);
     }
+    @Override
+    public void onMapReady(GoogleMap mGoogleMap) {
+       // Log.d(TAG, "onMapReady: " + mGoogleMap);
+        this.mGoogleMap = mGoogleMap;
 
+        // Configura o tipo do mapa
+        mGoogleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        // Conecta no Google Play Services
+        mGoogleApiClient.connect();
+    }
+
+    @Override
+    protected void onStop() {
+        // Desconecta
+        mGoogleApiClient.disconnect();
+        super.onStop();
+    }
+
+    @Override
+    public void onConnected(Bundle bundle) {
+
+        Location l = LocationServices.FusedLocationApi.getLastLocation(
+                mGoogleApiClient);
+
+       // Atualiza a localizacao do mapa
+        setMapLocation(l);
+    }
+    @Override
+    public void onConnectionSuspended(int cause) {
+        Toast toast = Toast.makeText(DenunciaAnonimaActivity3.this, "Conexao Interrompida", Toast.LENGTH_LONG);
+        toast.show();
+    }
+
+    @Override
+    public void onConnectionFailed(ConnectionResult connectionResult) {
+        Toast toast = Toast.makeText(DenunciaAnonimaActivity3.this, "Erro ao conctar", Toast.LENGTH_LONG);
+        toast.show();
+    }
+
+    // Atualiza a coordenada do mapa
+    private void setMapLocation(Location l) {
+        if (mGoogleMap != null && l != null) {
+            LatLng latLng = new LatLng(l.getLatitude(), l.getLongitude());
+            CameraUpdate update = CameraUpdateFactory.newLatLngZoom(latLng, 15);
+            mGoogleMap.animateCamera(update);
+
+            //Log.d(TAG, "setMapLocation: " + l);
+            //TextView text = (TextView) findViewById(R.id.text);
+            //text.setText(String.format("Lat/Lnt %f/%f, provider: %s", l.getLatitude(), l.getLongitude(), l.getProvider()));
+/*
+            // Desenha uma bolinha vermelha
+            CircleOptions circle = new CircleOptions().center(latLng);
+            circle.fillColor(Color.RED);
+            circle.radius(25); // Em metros
+            mGoogleMap.clear();
+            mGoogleMap.addCircle(circle);
+            */
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -167,7 +272,7 @@ public class DenunciaAnonimaActivity3 extends FragmentActivity implements EditNa
         public void sendToServer(String observacao) {
         String ltd=Double.toString(coordenadas.latitude);
         String lgt=Double.toString(coordenadas.longitude);
-        String idusuario=idUsuario;
+        String idusuario = idUsuario;
         String idsubtema=idSubTema;
         String obs=observacao;
         new SaveTask().execute(ltd, lgt, idusuario, idsubtema, obs);

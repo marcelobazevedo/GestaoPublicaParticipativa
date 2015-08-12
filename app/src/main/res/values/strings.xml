@@ -13,12 +13,11 @@
     <string name="lbl_sobre">Informações</string>
     <string name="lbl_email">Email</string>
     <string name="lbl_nome">Nome</string>
-    <string name="lbl_data_nascimento">Data de Nascimento</string>
     <string name="lbl_cadastrar">Cadastrar</string>
     <string name="msg_sobre">Loja Virtual 1.0</string>
 
     <!-- String mensagem -->
-    <string name="msg_login_obg">Login obrigatorio</string>
+    <string name="msg_login_obg">Nome obrigatorio</string>
     <string name="msg_senha_obg">Senha obrigatorio</string>
     <string name="msg_logout">Deseja realmente deslogar?</string>
 
@@ -122,5 +121,13 @@
 
     <string name="tgl_ligado">On</string>
     <string name="tgl_desligado">Off</string>
+    <string name="title_activity_main_activity2">MainActivity2Activity</string>
+
+
+
+    <string name="action_my_location">My Location</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

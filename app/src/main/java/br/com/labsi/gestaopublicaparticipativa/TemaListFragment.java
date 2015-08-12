@@ -82,6 +82,7 @@ public class TemaListFragment extends android.support.v4.app.Fragment {
                 Intent intent = new Intent(getActivity(), SubTemaMainActivity2.class);
                 //intent.putExtra("codigo", TemaDTO.getIdTema().toString());
                 intent.putExtra("codigo", TemaDTO.getIdTema());
+
                 startActivity(intent);
 
 //gera um toast

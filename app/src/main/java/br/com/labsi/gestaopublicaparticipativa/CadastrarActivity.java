@@ -3,78 +3,40 @@ package br.com.labsi.gestaopublicaparticipativa;
 /**
  * Created by Marcelo on 18/01/2015.
  **/
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import br.com.labsi.gestaopublicaparticipativa.bo.LoginBO;
+import br.com.labsi.gestaopublicaparticipativa.fragment.CadastrarFragment;
 import br.com.labsi.gestaopublicaparticipativa.util.MensagemUtil;
+import br.com.labsi.gestaopublicaparticipativa.util.Utils;
 
-public class CadastrarActivity extends FragmentActivity {
-
-    private LoginBO loginBO;
-    private EditText edtNome;
-    private EditText edtEmail;
-    private EditText edtDataNascimento;
-    private EditText edtsenha;
-
+public class CadastrarActivity extends android.support.v4.app.FragmentActivity {
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastrar);
-
-        Intent it = getIntent();
-        edtNome = (EditText)findViewById(R.id.edt_nome);
-        edtEmail= (EditText) findViewById(R.id.edt_email);
-        edtDataNascimento= (EditText) findViewById(R.id.edt_data_nascimento);
-        edtsenha= (EditText) findViewById(R.id.edt_senha);
-
-    }
-
-    public void cadastrar(View view) {
-        new LoadingAsync().execute();
-    }
+        android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
+        CadastrarFragment frag1 = (CadastrarFragment) fm.findFragmentById(R.id.frag1);
 
 
-    private class LoadingAsync extends AsyncTask<Void, Void, String> {
-
-        private ProgressDialog progressDialog = new ProgressDialog(
-                CadastrarActivity.this);
-
-        @Override
-        protected void onPreExecute() {
-            progressDialog.setMessage("Carregando...");
-            progressDialog.show();
-        }
-
-        @Override
-        protected String doInBackground(Void... params) {
-            String nome = edtNome.getText().toString();
-            String email = edtEmail.getText().toString();
-            String datadenascimeto = edtDataNascimento.getText().toString();
-            String senha = edtsenha.getText().toString();
-
-            loginBO = new LoginBO(CadastrarActivity.this);
-
-            return loginBO.validarLogin(nome, email);// faz a validacao dos campos, falta o de dn e senha
-
-
-
-        }
-
-        @Override
-        protected void onPostExecute(String msg) {
-            progressDialog.dismiss();
-            if (msg==null) {
-                Intent i = new Intent(CadastrarActivity.this,
-                        CadastrarActivity.class);
-                startActivity(i);
-                finish();
-            }else {
-                MensagemUtil.addMsg(CadastrarActivity.this, msg);
-            }
-        }
     }
 }

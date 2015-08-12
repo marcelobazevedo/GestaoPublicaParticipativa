@@ -12,8 +12,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+
 
 public class IndexActivity extends Activity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,16 +26,28 @@ public class IndexActivity extends Activity {
 
 
 
+       // Toast toast = Toast.makeText(this, accountName, Toast.LENGTH_LONG);
+       // toast.show();
+
         Button botaoLogar = (Button) findViewById(R.id.botaoLogar);
         Button botaoCadastrar = (Button) findViewById(R.id.botaoCadastrar);
         Button botaoAnonimo = (Button) findViewById(R.id.botaoAnonimo);
         Button botaoListarTodos = (Button) findViewById(R.id.botaoListarTodos);
         Button botaoLogarComEmail = (Button)findViewById(R.id.botaoLogarComEmail);
+        Button botaoEditarCadastro = (Button)findViewById(R.id.botaoEditarCadastro);
+
 
 
         botaoLogarComEmail.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent i = new Intent(IndexActivity.this, LoginActivity.class);
+                startActivity(i);
+            }
+        });
+
+        botaoEditarCadastro.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent i = new Intent(IndexActivity.this, EditarCadastroActivity.class);
                 startActivity(i);
             }
         });
@@ -52,6 +68,8 @@ public class IndexActivity extends Activity {
 
         botaoAnonimo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                TodaAplicacao todaAplicacao=(TodaAplicacao)getApplicationContext();
+                todaAplicacao.setIdUsuario("0");
                 Intent i = new Intent(IndexActivity.this, TemaMainActivity2.class);
                 startActivity(i);
             }

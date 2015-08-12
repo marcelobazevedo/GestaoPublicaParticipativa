@@ -10,7 +10,7 @@ public class TodaAplicacao extends Application {
     private String email;
     private String nomeUsuario;
     private String nome;
-    private String sexo;
+    private String senha;
 
     @Override
     public void onCreate() {
@@ -50,11 +50,11 @@ public class TodaAplicacao extends Application {
         this.nome = nome;
     }
 
-    public String getSexo() {
-        return sexo;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 }

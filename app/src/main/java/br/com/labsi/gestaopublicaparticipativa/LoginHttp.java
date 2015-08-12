@@ -21,8 +21,7 @@ public class LoginHttp {
 
     public String validarLoginRest(String email) {
 
-        //email = "marcelobazevedo@gmail.com";
-        String resultado = "";
+       String resultado = "";
         if (email != "") {
 
             try {
