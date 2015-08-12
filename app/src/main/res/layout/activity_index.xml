@@ -34,4 +34,10 @@
         android:layout_height="wrap_content"
         android:text="Logar usando o email" />
 
+    <Button
+        android:id="@+id/botaoEditarCadastro"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Editar Cadastro" />
+
 </LinearLayout>
